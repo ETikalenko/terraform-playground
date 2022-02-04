@@ -14,19 +14,3 @@ variable "gmail_traffic_range" {
   description = "Gmail service traffic"
   default     = "0.1.0.20"
 }
-
-# cloudresourcemanager api cannot be enabled here by some reason, added to cloudbuild.yaml
-variable "services" {
-  type        = list(string)
-  description = "List of APIs to enable"
-  default     = [
-    "iam.googleapis.com",
-    "appengine.googleapis.com",
-    "cloudresourcemanager.googleapis.com"
-  ]
-}
-
-variable "credentials" {
-  type        = string
-  description = "Terraform service account credentials"
-}
