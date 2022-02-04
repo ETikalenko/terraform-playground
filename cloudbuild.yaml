@@ -1,0 +1,40 @@
+steps:
+- name: "alpine"
+  entrypoint: "sh"
+  args:
+    - "-c"
+    - |
+      echo "$BRANCH_NAME"
+      echo "$PROJECT_ID"
+
+- id: "Get account credentials"
+  name: "gcr.io/cloud-builders/gcloud"
+  entrypoint: "/bin/bash"
+  args: ["-c", "gcloud secrets versions access latest --secret terraform_sa_credentials > /workspace/credentials.json"]
+
+- id: "tf init"
+  name: "hashicorp/terraform"
+  entrypoint: "sh"
+  args:
+    - "-c"
+    - |
+      apk --no-cache add curl
+      cd terraform
+      terraform init
+
+- id: "tf apply"
+  name: "hashicorp/terraform"
+  entrypoint: "sh"
+  args:
+    - "-c"
+    - |
+      apk --no-cache add curl
+      cd terraform
+      terraform apply -auto-approve
+  env:
+    - "TF_VAR_project_id=$PROJECT_ID"
+    - "TF_VAR_credentials=/workspace/credentials.json"
+
+- id: "deploy app"
+  name: "gcr.io/cloud-builders/gcloud"
+  args: [ "beta", "app", "deploy", "app_$BRANCH_NAME.yaml" ]

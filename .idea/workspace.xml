@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0080d8c6-d137-43b9-b583-0be5bafad7a3" name="Default Changelist" comment="" />
+    <list default="true" id="0080d8c6-d137-43b9-b583-0be5bafad7a3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cloudbuild.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/main.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/scripts/enable_apis.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +39,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643965634423</updated>
-      <workItem from="1643965636193" duration="1207000" />
+      <workItem from="1643965636193" duration="2248000" />
     </task>
     <servers />
   </component>
