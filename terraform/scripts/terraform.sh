@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+set -o pipefail
+
 if [[ $# -ge 2 ]] || [[ $# -eq 0 ]]; then
     echo "Wrong number of input arguments"
     exit 1
